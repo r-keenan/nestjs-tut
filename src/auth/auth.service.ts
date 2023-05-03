@@ -23,7 +23,6 @@ export class AuthService {
       return user;
     } catch (error) {
       if (error.constructor.name == Prisma.PrismaClientKnownRequestError.name) {
-        console.log(error.code);
         if (error.code === 'P2002') {
           throw new ForbiddenException('Credentials taken');
         }
